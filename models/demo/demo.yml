@@ -1,5 +1,6 @@
 version: 2
 
+
 models:
   - name: employee
     description: "Employee DBT model"
@@ -10,16 +11,24 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['1', '2', '3', '4', '5']
+                values: ['1','2','3','4','5']
                 config:
-                  sevarity: warn 
+                  severity: warn
       - name: emp_salary
         data_tests:
           - salary_check
-
+  - name: customer
+    description: "DBT Model for the customer table"  
+  - name: customer_vw
+    description: "DBT Model for the customer view"    
 sources:
   - name: employee
     database: DBT_DB
     schema: PUBLIC
     tables:
       - name: EMPLOYEE_RAW
+  - name: customer
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: CUSTOMER_SRC
