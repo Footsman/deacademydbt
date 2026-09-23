@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: de_academy_raw
+    database: de_academy
+    schema: raw
+    tables:
+      - name: orders
