@@ -37,6 +37,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   my_new_project:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
+    scd2_product:
+      +database: SCD2_DBT_DB
+      silver:
+        +schema: SILVER
+        +materialized: table 
+      gold:
+        +schema: GOLD
+        +materialized: view
+
+
+vars:
+  scd2_db: SCD2_DBT_DB
+  scd2_wrk_schema: BRONZE
+  scd2_stage: SCD2_DBT_DB.BRONZE.s3_test_stage
+  scd2_file_format: SCD2_DBT_DB.BRONZE.MY_CSV_FORMAT
+  scd2_purge: FALSE

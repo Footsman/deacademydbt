@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: scd2_bronze
+    database: SCD2_DBT_DB
+    schema: BRONZE
+    tables:
+      - name: WORK_PRODUCT_COPY
